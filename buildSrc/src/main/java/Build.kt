@@ -1,4 +1,4 @@
 object Build {
-    const val build_tools_gradle = "com.android.tools.build:gradle:${Versions.gradle}"
-    const val kotlin_build_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+    const val GRADLE_BUILD_TOOLS = "com.android.tools.build:gradle:${Versions.GRADLE}"
+    const val KOTLIN_GRADLE_PLUGIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.KOTLIN}"
 }

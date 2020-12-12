@@ -1,3 +1,3 @@
 object Repositories {
-   const val maven_google ="https://maven.google.com"
+   const val MAVEN_GOOGLE ="https://maven.google.com"
 }

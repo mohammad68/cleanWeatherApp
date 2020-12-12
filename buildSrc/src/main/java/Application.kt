@@ -1,5 +1,5 @@
 object Application {
-   const val id = "com.example.cleanarchitecturecomponentsweatherapp"
-   const val version_code = 1
-   const val version_name = "1.0"
+   const val ID = "com.example.cleanarchitecturecomponentsweatherapp"
+   const val VERSION_CODE = 1
+   const val VERSION_NAME = "1.0"
 }
