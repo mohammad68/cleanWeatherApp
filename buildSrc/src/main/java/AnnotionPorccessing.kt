@@ -1,0 +1,3 @@
+object AnnotionPorccessing {
+    //room,dagger,lifecycle...
+}
