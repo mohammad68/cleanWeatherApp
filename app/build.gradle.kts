@@ -1,35 +1,37 @@
 plugins {
     id ("com.android.application")
     id ("kotlin-android")
+    id("kotlin-android-extensions")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
-    compileSdkVersion(Versions.COMPILE_SDK)
-    buildToolsVersion = Versions.BUILD_TOOLS_VERSION
+    compileSdkVersion(AndroidConfig.COMPILE_SDK)
+    buildToolsVersion = AndroidConfig.BUILD_TOOLS_VERSION
 
     defaultConfig {
-        applicationId =  Application.ID
-        minSdkVersion(Versions.MIN_SDK)
-        targetSdkVersion(Versions.TARGET_SDK)
-        versionCode = Application.VERSION_CODE
-        versionName = Application.VERSION_NAME
-        testInstrumentationRunner = AndroidTestDependencies.ANDROID_JUNIT_RUNNER
+        applicationId =  AndroidConfig.ID
+        minSdkVersion(AndroidConfig.MIN_SDK)
+        targetSdkVersion(AndroidConfig.TARGET_SDK)
+        versionCode = AndroidConfig.VERSION_CODE
+        versionName = AndroidConfig.VERSION_NAME
+        testInstrumentationRunner = TestDependencies.ANDROID_JUNIT_RUNNER
     }
 
     buildTypes {
-        getByName("release") {
-            isShrinkResources = true
-            isMinifyEnabled = true
-            isDebuggable = true
+        getByName(BuildType.RELEASE) {
+            isShrinkResources = BuildTypeRelease.isShrinkResources
+            isMinifyEnabled = BuildTypeRelease.isMinifyEnabled
+            isDebuggable = BuildTypeRelease.isDebuggable
             proguardFiles(
                 getDefaultProguardFile("proguard-android.txt"),
                 "proguard-rules.pro"
             )
         }
-        getByName("debug") {
-            applicationIdSuffix = ".development"
-            versionNameSuffix = "-DEBUG"
-            isMinifyEnabled = false
+        getByName(BuildType.DEBUG) {
+            versionNameSuffix = BuildTypeDebug.versionNameSuffix
+            isMinifyEnabled = BuildTypeDebug.isMinifyEnabled
             proguardFiles(
                 getDefaultProguardFile("proguard-android.txt"),
                 "proguard-rules.pro"
@@ -46,12 +48,16 @@ android {
 }
 
 dependencies {
-    implementation (SupportDependencies.APP_COMPAT)
-    implementation (SupportDependencies.MATERIAL)
-    implementation (SupportDependencies.CONSTRAINT_LAYOUT)
+    implementation (Dependencies.APP_COMPAT)
+    implementation (Dependencies.MATERIAL)
+    implementation (Dependencies.CONSTRAINT_LAYOUT)
     testImplementation (TestDependencies.JUNIT)
-    androidTestImplementation(AndroidTestDependencies.EXT_JUNIT)
-    androidTestImplementation(AndroidTestDependencies.ESPRESSO)
+    androidTestImplementation(TestDependencies.EXT_JUNIT)
+    androidTestImplementation(TestDependencies.ESPRESSO)
+
+    implementation(Dependencies.HILT_ANDROID)
+    kapt(Dependencies.HILT_ANDROID_COMPILER)
 
     implementation(project(ProjectModule.DOMAIN))
+    implementation(project(ProjectModule.DATA))
 }

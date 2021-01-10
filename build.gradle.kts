@@ -5,8 +5,9 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath(Build.GRADLE_BUILD_TOOLS)
-        classpath(Build.KOTLIN_GRADLE_PLUGIN)
+        classpath(GradlePlugin.GRADLE_BUILD_TOOLS)
+        classpath(GradlePlugin.KOTLIN_GRADLE_PLUGIN)
+        classpath(GradlePlugin.DAGGER_HILT_PLUGIN)
     }
 }
 

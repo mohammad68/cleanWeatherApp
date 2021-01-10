@@ -1,8 +1,4 @@
 object Versions {
-    const val COMPILE_SDK = 30
-    const val MIN_SDK = 16
-    const val TARGET_SDK = 30
-    const val BUILD_TOOLS_VERSION = "30.0.1"
     const val GRADLE = "4.1.0"
     const val KOTLIN = "1.4.10"
     const val KTX = "1.3.2"
@@ -12,4 +8,13 @@ object Versions {
     const val JUNIT = "4.13.1"
     const val EXT_JUNIT = "1.1.2"
     const val ESPRESSO = "3.3.0"
+    const val HILT_ANDROID = "2.28-alpha"
+    const val HILT = "1.0.0-alpha01"
+    const val COROUTINES = "1.3.5"
+    const val LIFECYCLE_ANDROIDX = "2.2.0"
+    const val ACTIVITY_KTX = "1.1.0"
+    const val LIFECYCLE_ARCH  = "1.1.1"
+    const val RETROFIT ="2.6.0"
+    const val OK_HTTP_LOGGER = "4.5.0"
+    const val ROOM = "2.2.5"
 }
